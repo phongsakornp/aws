@@ -249,7 +249,7 @@ static void mgos_aws_shadow_ev(struct mg_connection *nc, int ev, void *ev_data,
       for (int i = 0; i < 5; i++) {
         topic_exprs[i].topic = get_aws_shadow_topic_name(
             ss->thing_name, (enum mgos_aws_shadow_topic_id) topic_exprs[i].qos);
-        topic_exprs[i].qos = 1;
+        topic_exprs[i].qos = 0;
         LOG(LL_DEBUG, ("  %s", topic_exprs[i].topic));
       }
       ss->sub_id = mgos_mqtt_get_packet_id();
